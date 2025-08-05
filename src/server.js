@@ -17,13 +17,7 @@ configViewEngine(app);
 app.use('/', webRoute)
 
 
-// A simple SELECT query
-connection.query(
-    'select * from Users u',
-    function (err, results, fields) {
-        console.log(">>> result: ", results); // results contains rows returned by server
-    }
-);
+
 
 
 app.listen(port, () => {
