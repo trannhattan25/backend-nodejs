@@ -9,8 +9,9 @@ const hostname = process.env.HOST_NAME;
 
 // config temple engine
 app.set('view', './view')
+
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Hello World! Nodemon')
 })
 
 app.listen(port, () => {
