@@ -11,9 +11,23 @@ const getNhattan = (req, res) => {
     res.render('sample.ejs')
 }
 const postCreateUser = (req, res) => {
-    console.log(">>> req.body", req.body);
 
-    res.send("add new");
+    // let email = req.body.email;
+    // let name = req.body.name;
+    // let city = req.body.city;
+
+    let { email, name, city } = req.body;
+    console.log(">>> req.body", req.body.email);
+    connection.query(
+        `   INSERT INTO Users(email, name, city)  
+        VALUES(?, ?, ?)`,
+        [email, name, city],
+        function (err, results) {
+            console.log(results);
+            res.send('Create user success');
+        }
+    )
+
 }
 
 module.exports = {
