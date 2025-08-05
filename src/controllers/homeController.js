@@ -10,8 +10,14 @@ const getHomePage = (req, res) => {
 const getNhattan = (req, res) => {
     res.render('sample.ejs')
 }
+const postCreateUser = (req, res) => {
+    console.log(">>> req.body", req.body);
+
+    res.send("add new");
+}
 
 module.exports = {
     getHomePage,
-    getNhattan
+    getNhattan,
+    postCreateUser
 }
