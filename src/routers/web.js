@@ -1,11 +1,8 @@
 const express = require('express');
+const { getHomePage, getNhattan } = require('../controllers/homeController')
 const route = express.Router();
 
-route.get('/', (req, res) => {
-    res.send('Hello World! Nodemon')
-})
-route.get('/nhattan', (req, res) => {
-    res.render('sample.ejs')
-})
+route.get('/', getHomePage);
+route.get('/nhattan', getNhattan);
 
 module.exports = route; // export defaulf
