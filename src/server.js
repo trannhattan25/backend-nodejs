@@ -19,9 +19,15 @@ configViewEngine(app);
 //khai bao route
 app.use('/', webRoute)
 
-// test connection
-connection();
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+// Dùng IIFE để kết nối DB trước khi khởi động server
+const con = async () => {
+    try {
+        await connection(); // kết nối DB
+        app.listen(port, () => {
+            console.log(`✅ Server is listening on http://${hostname}:${port}`);
+        });
+    } catch (error) {
+        console.error("❌ Lỗi kết nối database:", error);
+    }
+}
+con();
