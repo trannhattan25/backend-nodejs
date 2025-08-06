@@ -17,9 +17,13 @@
             <a href="#about">About</a>
         </div>
         <div class="form-add-new">
-            <form action="/create-user" method="post">
+            <form action="/update" method="post">
                 <fieldset>
                     <legend>Update a user</legend>
+                    <div class="input-group d-none">
+                        <label for="">Id:</label>
+                        <input value="<%= userEdit.id %>" id="emailId" name="id" type="text">
+                    </div>
                     <div class="input-group">
                         <label for="">Email:</label>
                         <input value="<%= userEdit.email %>" id="emailId" name="email" type="text">
