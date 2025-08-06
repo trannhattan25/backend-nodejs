@@ -27,16 +27,26 @@
                     <th>City</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td>Lois</td>
-                    <td>Peter</td>
-                    <td>Griffin</td>
-                    <td>$100</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Remove</button>
-                    </td>
-                </tr>
+
+                <% listUsers.forEach(function(user) { %>
+                    <tr>
+                        <td>
+                            <%=user.id %>
+                        </td>
+                        <td>
+                            <%=user.email %>
+                        </td>
+                        <td>
+                            <%=user.name %>
+                        </td>
+                        <td>$ <%=user.city %>
+                        </td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Remove</button>
+                        </td>
+                    </tr>
+                    <% }); %>
 
             </table>
 

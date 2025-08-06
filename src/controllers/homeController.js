@@ -16,15 +16,7 @@ const getCreateUser = (req, res) => {
 }
 const postCreateUser = async (req, res) => {
     let { email, name, city } = req.body;
-    // connection.query(
-    //     `   INSERT INTO Users(email, name, city)  
-    //     VALUES(?, ?, ?)`,
-    //     [email, name, city],
-    //     function (err, results) {
-    //         console.log(results);
-    //         res.send('Create user success');
-    //     }
-    // )
+
 
     let [results, fields] = await connection.query(
         `   INSERT INTO Users(email, name, city)  
