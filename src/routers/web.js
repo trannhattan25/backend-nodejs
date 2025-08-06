@@ -7,7 +7,7 @@ route.get('/', getHomePage);
 route.get('/nhattan', getNhattan);
 route.get('/create-user', getCreateUser);
 route.post('/create-user', postCreateUser);
-route.get('/update', getUpdateUser);
+route.get('/update/:id', getUpdateUser);
 
 
 
