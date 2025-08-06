@@ -41,6 +41,12 @@
     padding: 20px;
 }
 
+.form-delete {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
 .input-group {
     padding: 10px;
 }

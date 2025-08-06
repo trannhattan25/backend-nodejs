@@ -17,39 +17,39 @@
     </div>
 
     <div class="table-content">
-        <%=JSON.stringify(listUsers) %>
-            <div class="title">List user</div>
-            <table>
+        <div class="title">List user</div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+
+            <% listUsers.forEach(function(user) { %>
                 <tr>
-                    <th>Id</th>
-                    <th>Email</th>
-                    <th>Name</th>
-                    <th>City</th>
-                    <th>Action</th>
+                    <td>
+                        <%=user.id %>
+                    </td>
+                    <td>
+                        <%=user.email %>
+                    </td>
+                    <td>
+                        <%=user.name %>
+                    </td>
+                    <td>$ <%=user.city %>
+                    </td>
+                    <td>
+                        <a href="/update/<%=user.id %>"> <button>Edit</button>
+                        </a>
+                        <form action="/delete/<%=user.id %>" method="post"> <button>Remove</button>
+                        </form>
+                    </td>
                 </tr>
+                <% }); %>
 
-                <% listUsers.forEach(function(user) { %>
-                    <tr>
-                        <td>
-                            <%=user.id %>
-                        </td>
-                        <td>
-                            <%=user.email %>
-                        </td>
-                        <td>
-                            <%=user.name %>
-                        </td>
-                        <td>$ <%=user.city %>
-                        </td>
-                        <td>
-                            <a href="/update/<%=user.id %>"> <button>Edit</button>
-                            </a>
-                            <button>Remove</button>
-                        </td>
-                    </tr>
-                    <% }); %>
-
-            </table>
+        </table>
 
     </div>
 
