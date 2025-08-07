@@ -31,13 +31,15 @@ const postCreateUser = async (req, res) => {
 // edit
 const getUpdateUser = async (req, res) => {
     const userId = req.params.id
-    let user = await getUserById(userId);
+    // let user = await getUserById(userId);
+    let user = await User.findById(userId).exec();
     res.render('edit.ejs', { userEdit: user })
 }
 const postUpdateUser = async (req, res) => {
     let { id, email, name, city } = req.body;
 
-    await updateUserById(email, name, city, id);
+    // await updateUserById(email, name, city, id);
+    await User.updateOne({ _id: id }, { email: email, name: name, city, city });
 
 
     res.redirect('/')
