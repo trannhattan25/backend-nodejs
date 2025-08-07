@@ -5,8 +5,7 @@ const { getAllUsers, getUserById, updateUserById, deleteUserById } = require('..
 let users = [];
 
 const getHomePage = async (req, res) => {
-    let results = [];
-    // let results = await getAllUsers();
+    let results = await User.find({});
     return res.render('home.ejs', { listUsers: results });
 
 }
@@ -24,17 +23,7 @@ const postCreateUser = async (req, res) => {
         name: name,
         city: city
     })
-    // await User.create({
-    //     email,
-    //     name,
-    //     city
-    // })
 
-    // let [results, fields] = await connection.query(
-    //     `   INSERT INTO Users(email, name, city)  
-    //     VALUES(?, ?, ?)`,
-    //     [email, name, city]
-    // );
 
     res.send('Create user success');
 
