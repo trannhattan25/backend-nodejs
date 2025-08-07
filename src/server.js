@@ -4,7 +4,6 @@ const express = require('express');// common js
 const configViewEngine = require('./config/viewEngine');
 const webRoute = require('./routers/web');
 const connection = require('./config/database');
-const Kitten = require('./models/Kitten');
 
 const app = express()
 const port = process.env.PORT || 8888;
@@ -20,8 +19,7 @@ configViewEngine(app);
 //khai bao route
 app.use('/', webRoute);
 
-const cat = new Kitten({ name: 'Nhan Tan cat Model' });
-cat.save();
+
 
 (async () => {
     try {
