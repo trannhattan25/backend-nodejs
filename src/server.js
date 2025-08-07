@@ -4,6 +4,7 @@ const express = require('express');// common js
 const configViewEngine = require('./config/viewEngine');
 const webRoute = require('./routers/web');
 const connection = require('./config/database');
+const routeAPI = require('./routers/api');
 
 const app = express()
 const port = process.env.PORT || 8888;
@@ -18,6 +19,7 @@ configViewEngine(app);
 
 //khai bao route
 app.use('/', webRoute);
+app.use('/v1/api', routeAPI);
 
 
 
