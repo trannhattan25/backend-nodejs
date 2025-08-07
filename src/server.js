@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const mongoose = require('mongoose');
 const express = require('express');// common js
 const configViewEngine = require('./config/viewEngine');
 const webRoute = require('./routers/web');
@@ -17,10 +18,17 @@ app.use(express.urlencoded({ extended: true }))
 configViewEngine(app);
 
 //khai bao route
-app.use('/', webRoute)
+app.use('/', webRoute);
 
-// Dùng IIFE để kết nối DB trước khi khởi động server
-const con = async () => {
+const kittySchema = new mongoose.Schema({
+    name: String
+});
+
+const Kitten = mongoose.model('Kitten', kittySchema);
+const cat = new Kitten({ name: 'Nhan Tan cat' });
+cat.save();
+
+(async () => {
     try {
         await connection(); // kết nối DB
         app.listen(port, () => {
@@ -29,5 +37,4 @@ const con = async () => {
     } catch (error) {
         console.error("❌ Lỗi kết nối database:", error);
     }
-}
-con();
+})();
