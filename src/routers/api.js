@@ -1,6 +1,6 @@
 const express = require('express');
 const { getHomePage } = require('../controllers/homeController');
-const { getUsersAPI, postCreateUserAPI, putUpdateUserAPI, deleteUserAPI } = require('../controllers/apiController');
+const { getUsersAPI, postCreateUserAPI, putUpdateUserAPI, deleteUserAPI, postUploadSingleFileAPI } = require('../controllers/apiController');
 const routeAPI = express.Router();
 
 routeAPI.get('/', (req, res) => {
@@ -16,6 +16,9 @@ routeAPI.get('/users', getUsersAPI);
 routeAPI.post('/users', postCreateUserAPI);
 routeAPI.put('/users', putUpdateUserAPI);
 routeAPI.delete('/users', deleteUserAPI);
+
+routeAPI.post('/file', postUploadSingleFileAPI);
+
 
 
 
